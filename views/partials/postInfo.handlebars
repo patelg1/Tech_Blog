@@ -1,0 +1,45 @@
+{{!-- <div class="card mb-6">
+  <header class="card-header card-header-title bg-secondary.bg-gradient">
+    
+    <div class="column">
+        <p class="text-primary"></p>
+      <a href="/post/{{id}}"  class="text-black text-capitalize float-start">{{title}} </a>
+    </div>
+
+    <div class="column">
+      <span class=""> </span>
+      </div>
+    </div>
+  </header>
+
+  <div class="card-content">
+      <div class="content text-justify">
+          {{content}}
+      </div>
+      <div class="float-end">
+          <b>{{user.username}}</b> |          
+          {{format_date date_created}} | <a href="/post/{{id}}">{{comments.length}}</a>
+      </div>        
+  </div>
+</div> --}}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <a href="/post/{{id}}" class="card-link">
+            <h2>{{title}}</h2>
+        </a>
+        <h6>Posted by {{user.name}} on {{format_date date_created}}</h6>
+    </div>
+    <div class="card-body">
+        <p>{{content}}</p>
+    </div>
+    {{#each comments as |comment|}}
+    <div class="media ml-4 mb-4">
+        <div class="media-body text-right">
+                <h6 class="mr-3">Comment posted by {{user.name}} on {{format_date created_at}}</h6>
+                <h5 class="mt-0 mr-3">{{comment.comment}}</h5>
+        </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
