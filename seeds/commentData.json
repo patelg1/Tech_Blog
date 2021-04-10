@@ -1,17 +1,17 @@
 [
     {
         "user_id": 1,
-        "post_id": 2,
+        "post_id": 1,
         "text": "This is very interesting"
     },
     {
         "user_id": 2,
-        "post_id": 4,
+        "post_id": 2,
         "text": "Fascinating ideas"
     },
     {
         "user_id": 3,
-        "post_id": 6,
+        "post_id": 3,
         "text": "That is very helpful"
     }
 

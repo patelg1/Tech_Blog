@@ -1,14 +1,17 @@
 [
     {
         "title": "Taskmaster goes public!",
-        "content": "A mobile app to create a personal todo list, color-coded for different tasks"
+        "content": "A mobile app to create a personal todo list, color-coded for different tasks",
+        "user_id": 2
     },
     {
         "title": "Javascript is fun!",
-        "content": "Learning javascript was challenging but once you get it, the world opens up"
+        "content": "Learning javascript was challenging but once you get it, the world opens up",
+        "user_id": 3
     },
     {
         "title": "Weather is wild!",
-        "content": "Why can't it be summer already. One day its nice out and next day it's super cold"
+        "content": "Why can't it be summer already. One day its nice out and next day it's super cold",
+        "user_id": 1
     }
 ]

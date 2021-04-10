@@ -3,21 +3,17 @@
 
 <!-- displaying form and comments-->
 <!-- only display if logged in -->
-{{#if loggedIn}}
+{{#if logged_in}}
 <form class="comment-form">
-  <div>
+  <div class="form-group">
     <textarea class="ml-5" name="comment-body"></textarea>
   </div>
 
-  <div>
-    <button class="button btn btn-warning ml-5 mb-5" type="submit">Add Comment</button>
+  <div class="form-group">
+    <button class="button btn btn-warning ml-5 mb-5 comment-form" type="submit">Add Comment</button>
   </div>
   
 </form>
-{{/if}}
 
-{{> comments post.comments}}
-
-{{#if loggedIn}}
-<script src="/public/js/comment.js"></script>
+<script src="/js/comment.js"></script>
 {{/if}}

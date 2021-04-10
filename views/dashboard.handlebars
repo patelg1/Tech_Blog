@@ -1,18 +1,17 @@
 <div class="mb-5 pt-3">
-    <a href="/dashboard/create/">
+    <a href="/newpost">
     <button id="create-post" class="button btn btn-primary justify-content-end">Create Post</button>
     </a>
-    <h2 class="title pb-4">Dashboard: Your Posts</h2>
-    {{#if posts.length}}
+    <h2 class="title pb-4">Dashboard: Your Posts</h2>    
 </div>
 {{#each posts as |post|}}
 {{> postInfo post}}
 <div class="mb-5 pt-5">
-    <a href="/dashboard/edit/{{post.id}}">
+    <a href="/edit/{{post.id}}">
     <button class="button mb-5 ml-5 btn btn-warning">Edit Post</button>
     </a>
 </div>
-{{/each}}
 {{else}}
 <h6 class="pb-4 justify-content-center fst-italic">You currently do not have any posts</h6>
-{{/if}}
+{{/each}}
+

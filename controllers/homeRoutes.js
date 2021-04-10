@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+const {route} = require('./api/commentRoutes');
 
 
 router.get('/', async (req, res) => {
@@ -38,8 +39,7 @@ router.get('/post/:id', async (req, res) => {
             attributes: ['name'],
           },
           {
-            model: Comment,
-            attributes: ['id', 'text', 'post_id', 'user_id', 'date_created'],
+            model: Comment,            
             include: {
               model: User,
               attributes: ['name']
@@ -49,9 +49,9 @@ router.get('/post/:id', async (req, res) => {
       });
   
       const post = postData.get({ plain: true });
-  
-      res.render('singlePost', {
-        ...post,
+      console.log(post)
+      res.render('singlepost', {
+        post,
         logged_in: req.session.logged_in
       });
     } catch (err) {
@@ -73,8 +73,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
             attributes: ['name']            
           },
           {
-            model: Comment,
-            attributes: ['id', 'text', 'post_id', 'user_id', 'date_created'],
+            model: Comment,            
             include: {
               model: User,
               attributes: ['name']
@@ -99,26 +98,19 @@ router.get('/newpost', (req, res) => {
     res.redirect('/login');
     return;
   }
-  res.render('newPost');
+  res.render('newpost');
 });
 
-router.get('/editpost/:id', withAuth, async (req, res) => {
+router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-      const postData = await Post.findByPk(req.params.id, {
-          attributes: [
-              'id',
-              'title',
-              'content',
-              'date_created'
-          ],
+      const postData = await Post.findByPk(req.params.id, {          
           include: [
               {
                   model: User,
                   attributes: ['name'],
               },
               {
-                  model: Comment,
-                  attributes: ['id', 'comment', 'post_id', 'user_id', 'date_created'],
+                  model: Comment,                  
                   include: {
                       model: User,
                       attributes: ['name']
@@ -129,7 +121,7 @@ router.get('/editpost/:id', withAuth, async (req, res) => {
 
       const post = postData.get({ plain: true });
 
-      res.render('editPost', {
+      res.render('editpost', {
           post,
           logged_in: req.session.logged_in
       });
@@ -141,21 +133,21 @@ router.get('/editpost/:id', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/dasboard');
+    res.redirect('/dashboard');
     return;
   }
 
   res.render('login');
 });
 
-router.get('/signup', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/dasboard');
-    return;
-  }
+// router.get('/signup', (req, res) => {
+//   // If the user is already logged in, redirect the request to another route
+//   if (req.session.logged_in) {
+//     res.redirect('/dasboard');
+//     return;
+//   }
 
-  res.render('signup');
-});
+//   res.render('signup');
+// });
   
 module.exports = router;

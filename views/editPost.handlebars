@@ -1,29 +1,26 @@
-<article>
-    <a href="/dashboard" class="justify-content-right">&lAarr; Back to Dashboard</a>
-    <h2 class="title mt-5">Edit Blog Post</h2>
-    <hr>
-    <form class="edit-post-form">
-        <div>
-            <label for="post-title">Post Title</label>
-            <input class="input" type="text" id="post-title" name="post-title" value="{{post.title}}"/>
+<div class="row">
+    <aside class="col">
+        <div class="card">
+            <article class="card-body">
+                <h4 class="card-title mb-4 mt-1">Edit your post</h4>
+                <form class="edit-post-form">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input id="post-title" class="form-control" value="{{post.title}}" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Content</label>
+                        <textarea id="post-content" class="form-control" value="{{post.content}}" type="text">{{post.content}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info"> Update </button>
+                        <button type="button" class="btn btn-danger delete-post-form" post-id="{{post.id}}"> Delete </button>
+                    </div>
+                </form>
+            </article>
         </div>
-        <div>
-            <label for="post-content">Post Content</label>
-            <input class="textarea" type="text" id="post-content" name="post-content" value="{{post.text}}"/>
-        </div>
-        <div class="justify-content-right">
-            Created by you on {{format_date post.created_at}}
-            
-            <a href="/post/{{post.id}}">{{post.comments.length}}</a>
-        </div>
+    </aside>
+</div>
 
-        <button type="submit" class="button btn btn-success">Save Post</button> 
-        <button type="button" class="button btn btn-danger delete-post-btn">Delete Post</button>
-    </form>
-</article>
-
-{{> comments post.comments}}
-
-<script src="/public/js/editBlogPost.js"></script>
-<script src="/public/js/deleteBlogPost.js"></script>
-<script src="/public/js/comment.js"></script>
+<script src="/js/editBlogPost.js"></script>
+<script src="/js/deleteBlogPost.js"></script>
