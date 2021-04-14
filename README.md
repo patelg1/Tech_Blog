@@ -25,10 +25,11 @@ Run `npm install` to install all dependencies
 
 ## Usage
 
-Deployed Link: 
+Deployed Link: https://secure-beyond-22169.herokuapp.com/
 
 Demo:
 
+![Tech Blog Demo](./public/images/Tech_Blog.gif)
 
 ## Contributors
 See the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/)
